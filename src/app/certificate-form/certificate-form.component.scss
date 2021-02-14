@@ -1,0 +1,25 @@
+.example-chip-list {
+  width: 50%;
+  alignment: center;
+  display: block;
+}
+
+input, textarea{
+  &.ng-invalid.ng-touched{
+    border: 1px solid red;
+  }
+
+  &.ng-valid.ng-touched{
+    border: 1px solid green;
+  }
+
+}
+
+.validation {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
