@@ -19,7 +19,6 @@ import {JwtInterceptor} from "./_helpers/jwt.interceptor";
 import {ErrorInterceptor} from "./_helpers/error.interceptor";
 import {AuthenticationService} from "./_services/authentication.service";
 import { UsersListComponent } from './users-list/users-list.component';
-import {User} from "./model/user";
 import {UserService} from "./_services/user.service";
 import { OrderComponent } from './order/order.component';
 import {OrderService} from "./_services/order.service";
