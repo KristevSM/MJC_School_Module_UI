@@ -6,6 +6,7 @@ import {LoginComponent} from "./login/login.component";
 import {CertificatesListComponent} from "./certificates-list/certificates-list.component";
 import {UsersListComponent} from "./users-list/users-list.component";
 import {OrderComponent} from "./order/order.component";
+import {CertificateFormComponent} from "./certificate-form/certificate-form.component";
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'certificates', component: CertificatesListComponent},
   { path: 'users', component: UsersListComponent, canActivate: [AuthGuard] },
   { path: 'orders', component: OrderComponent, canActivate: [AuthGuard] },
+  { path: 'add-certificate', component: CertificateFormComponent, canActivate: [AuthGuard] },
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

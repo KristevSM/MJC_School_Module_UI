@@ -23,13 +23,18 @@ import {User} from "./model/user";
 import {UserService} from "./_services/user.service";
 import { OrderComponent } from './order/order.component';
 import {OrderService} from "./_services/order.service";
+import { CertificateFormComponent } from './certificate-form/certificate-form.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatIconModule} from "@angular/material/icon";
 
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
   { path: 'home', component: HomeComponent},
   { path: 'items', component: CertificatesListComponent},
-  { path: 'login', component: LoginComponent}
+  { path: 'login', component: LoginComponent},
+  { path: 'add-certificate', component: CertificateFormComponent}
 ];
 @NgModule({
   declarations: [
@@ -43,6 +48,7 @@ const routes: Routes = [
     LoginComponent,
     UsersListComponent,
     OrderComponent,
+    CertificateFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +58,10 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     MatPaginatorModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatChipsModule,
+    MatIconModule
   ],
   providers: [CertificateService,
     AuthenticationService,
