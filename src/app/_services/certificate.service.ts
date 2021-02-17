@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {Observable, throwError} from "rxjs";
 import {GiftCertificate} from "../model/giftt-certificate";
 import {ListResult} from "../model/list-result";
 import {environment} from "../../environments/environment";
+import {catchError} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,11 @@ export class CertificateService {
   }
 
   public addCertificate(certificate: GiftCertificate): Observable<GiftCertificate> {
-    return this.http.post<GiftCertificate>(this.certificateUrl, certificate);
+    return this.http.post<GiftCertificate>(this.certificateUrl, certificate)
+      .pipe(catchError((error: HttpErrorResponse) => {
+        console.log(error.error);
+        return throwError(error)
+      }));
   }
 
   public findById(id: number): Observable<GiftCertificate> {

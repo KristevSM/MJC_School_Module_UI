@@ -7,12 +7,14 @@ import {CertificatesListComponent} from "./certificates-list/certificates-list.c
 import {UsersListComponent} from "./users-list/users-list.component";
 import {OrderComponent} from "./order/order.component";
 import {CertificateFormComponent} from "./certificate-form/certificate-form.component";
+import {CertificateItemComponent} from "./certificate-item/certificate-item.component";
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'certificates/:id', component: CertificateItemComponent},
   { path: 'certificates', component: CertificatesListComponent},
   { path: 'users', component: UsersListComponent, canActivate: [AuthGuard] },
   { path: 'orders', component: OrderComponent, canActivate: [AuthGuard] },

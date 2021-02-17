@@ -9,5 +9,5 @@ export class GiftCertificate {
   lastUpdateDate: Date;
   duration: number;
   tags: Tag[];
-  links?: any
+  // links?: any
 }

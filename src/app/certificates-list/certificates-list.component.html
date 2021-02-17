@@ -1,4 +1,3 @@
-
 <div class="card my-5">
   <button class="btn btn-primary btn-sm" [routerLink]="['/add-certificate']">ADD NEW</button>
   <div class="card-body">
@@ -22,7 +21,10 @@
         <td> {{ certificate.price | currency}}</td>
         <td>{{ certificate.duration }}</td>
         <td>{{ certificate.createDate | date}}</td>
-        <td><button class="btn btn-primary btn-sm">EDIT</button></td>
+        <td>
+          <button class="btn btn-outline-primary btn-sm btn-block" [routerLink]="['/certificates', certificate.id]">EDIT</button>
+          <button class="btn btn-outline-primary btn-sm btn-block" [routerLink]="['/certificates', certificate.id]">DETAILS</button>
+        </td>
       </tr>
       </tbody>
     </table>

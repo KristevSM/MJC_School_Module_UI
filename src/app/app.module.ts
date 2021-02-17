@@ -26,6 +26,7 @@ import { CertificateFormComponent } from './certificate-form/certificate-form.co
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatChipsModule} from "@angular/material/chips";
 import {MatIconModule} from "@angular/material/icon";
+import { CertificateItemComponent } from './certificate-item/certificate-item.component';
 
 
 const routes: Routes = [
@@ -48,6 +49,7 @@ const routes: Routes = [
     UsersListComponent,
     OrderComponent,
     CertificateFormComponent,
+    CertificateItemComponent,
   ],
   imports: [
     BrowserModule,

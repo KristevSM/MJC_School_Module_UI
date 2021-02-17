@@ -4,8 +4,9 @@ import {MatChipInputEvent} from "@angular/material/chips";
 import {Tag} from "../model/tag";
 import {GiftCertificate} from "../model/giftt-certificate";
 import {CertificateService} from "../_services/certificate.service";
-import {PaginationHelper} from "../_helpers/pagination.helper";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {ErrorMessage} from "../model/error-message";
+import {HttpErrorResponse} from "@angular/common/http";
 
 
 @Component({
@@ -44,6 +45,8 @@ export class CertificateFormComponent implements OnInit{
   selectable = true;
   removable = true;
   addOnBlur = true;
+  completed = false;
+  error: HttpErrorResponse;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
   tags: Tag[] = [];
@@ -81,11 +84,16 @@ export class CertificateFormComponent implements OnInit{
       console.log('Form: ', this.form)
       this.certificate = {...this.form.value}
       this.certificate.tags = this.tags
+      this.certificate.id = this.form.value.id;
       console.log('Certificate: ', this.certificate)
       this.certificateService.addCertificate(this.certificate)
         .subscribe(c => {
             console.log('Certificate added: ', c)
             this.certificate = c;
+            this.completed = true;
+          }, e => {
+          this.error = e
+          console.log('Error:', this.error )
           }
         )
       this.form.reset();
